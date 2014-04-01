@@ -11,7 +11,7 @@ La realizacion es mediante
  - 2 botones
  - 3 led 
  
-(https://github.com/linuxesdios/Amuva-Azog/blob/master/azog_fotografias/circuito%20board.png?raw=true)
+![PhotoView](https://github.com/linuxesdios/Amuva-Azog/blob/master/azog_fotografias/circuito%20board.png?raw=true)
 
 
 ## License
