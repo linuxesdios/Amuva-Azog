@@ -1,0 +1,65 @@
+LABCENTER PROTEUS TOOL INFORMATION FILE
+=======================================
+
+In case of difficulty, please e-mail support@labcenter.co.uk
+
+Tool set up for Proteus layout 'Azog El Rastreador.pdsprj'.
+CADCAM generated at 1:05:34 on jueves, 20 de febrero de 2014.
+
+File List
+---------
+Top Copper              : Azog El Rastreador - CADCAM Top Copper.TXT
+Bottom Copper           : Azog El Rastreador - CADCAM Bottom Copper.TXT
+Top Silk Screen         : Azog El Rastreador - CADCAM Top Silk Screen.TXT
+Bottom Silk Screen      : Azog El Rastreador - CADCAM Bottom Silk Screen.TXT
+Top Solder Resist       : Azog El Rastreador - CADCAM Top Solder Resist.TXT
+Bottom Solder Resist    : Azog El Rastreador - CADCAM Bottom Solder Resist.TXT
+Top SMT Paste Mask      : Azog El Rastreador - CADCAM Top SMT Paste Mask.TXT
+Bottom SMT Paste Mask   : Azog El Rastreador - CADCAM Bottom SMT Paste Mask.TXT
+Drill                   : Azog El Rastreador - CADCAM Drill.TXT
+
+Photoplotter Setup
+------------------
+Format: RS274X, ASCII, 2.4, imperial, absolute, eob=*, LZO
+Notes:  D=Diameter, S=Side, W=Width, H=Height, C=Chamfer
+
+D10	CIRCLE  D=40th                                                            DRAW
+D11	CIRCLE  D=30th                                                            FLASH
+D12	CIRCLE  D=80th                                                            FLASH
+D13	CIRCLE  D=70th                                                            FLASH
+D14	CIRCLE  D=10th                                                            DRAW
+D15	CIRCLE  D=2.5th                                                           DRAW
+D16	SQUARE  S=80th                                                            FLASH
+D17	SQUARE  S=60th                                                            FLASH
+D18	CIRCLE  D=60th                                                            FLASH
+D19	RECT    W=60th                H=40th                                      FLASH
+D70	CIRCLE  D=150th                                                           FLASH
+D71	CIRCLE  D=95th                                                            FLASH
+D20	CIRCLE  D=2.4th                                                           DRAW
+D21	CIRCLE  D=8th                                                             DRAW
+D22	RECT    W=40th                H=60th                                      FLASH
+D23	CIRCLE  D=13th                                                            DRAW
+D24	CIRCLE  D=50th                                                            FLASH
+D25	CIRCLE  D=100th                                                           FLASH
+D26	CIRCLE  D=90th                                                            FLASH
+D27	SQUARE  S=100th                                                           FLASH
+D28	RECT    W=80th                H=60th                                      FLASH
+D29	CIRCLE  D=180th                                                           FLASH
+D72	CIRCLE  D=135th                                                           FLASH
+D73	RECT    W=60th                H=80th                                      FLASH
+
+NC Drill Setup
+--------------
+Format: ASCII, 2.4, imperial, absolute, eob=<CR><LF>, no zero suppression.
+Notes:  Tool sizes are diameters. Layer sets are in brackets - 0=TOP, 15=BOTTOM, 1-14=INNER.
+
+T01	15th (0-15)
+T02	20th (0-15)
+T03	40th (0-15)
+T04	30th (0-15)
+T05	25th (0-15)
+T06	60th (0-15)
+T07	85th (0-15)
+
+
+[END OF FILE]
