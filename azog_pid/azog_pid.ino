@@ -15,8 +15,9 @@ int pwm_izquierdo = 6;          //NO TOCAR                            //
 //VARIABLES DE LA FUNCION DE CONTROL                                  //
 //--------------------------------------------------------------------//
 //--------------------------------NO TOCAR ---------------------------//
-int errorAnt=0;                 //NO TOCAR                            //
-int resultado;                  //NO TOCAR                           //
+int errorAnt = 0;               //NO TOCAR                            //
+int resultado;                  //NO TOCAR                            //
+int lectura;                    //NO TOCAR                            //
 //--------------------------------------------------------------------//
 //VARIABLES DE LA FUNCION PONMOTORES                                  //
 //--------------------------------------------------------------------//
@@ -24,23 +25,24 @@ int resultado;                  //NO TOCAR                           //
 #define Stop 2                  //NO TOCAR                            //
 #define Adelante 1              //NO TOCAR                            //
 #define Atras 0                 //NO TOCAR                            //
-                                                                      //
+//
 //--------------------------------------------------------------------//
 
 //--------------------VARIBLES DE CONTROL DEL PID---------------------//
 //------------MODIFICAR PARA MEJORAR FUNCIONAMIENTO-------------------//
-int KD=16;
-int KP=25;
-int bias =100;
+int KD = 16;
+int KP = 15;
+int bias = 50;
+int KP_p = 15;
 //--------------------------------------------------------------------//
-void setup() {                
-  pinMode(led1, OUTPUT);     
+void setup() {
+  pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
   pinMode(led3, OUTPUT);
-  pinMode(motor_derecho_a, OUTPUT);     
+  pinMode(motor_derecho_a, OUTPUT);
   pinMode(motor_derecho_b, OUTPUT);
   pinMode(motor_izquierdo_a, OUTPUT);
-  pinMode(motor_izquierdo_b, OUTPUT);     
+  pinMode(motor_izquierdo_b, OUTPUT);
 
   pinMode(boton1, INPUT);
   pinMode(boton2, INPUT);
@@ -48,13 +50,51 @@ void setup() {
 }
 
 
-void loop() {  
-  resultado=pid(leer_sensor());
-  Serial.print("error = ");
-  Serial.print(resultado);
-    Serial.print("sensor = ");
-  Serial.println(analogRead(A7));
-  ponMotores(bias + resultado,bias - resultado);
+//#define _lecturasimple
+#define _lecturadoble
+
+//#define _todonada
+//#define _p
+#define _pid
+
+
+void loop() {
+  
+  //--------------------DISTINTOS MODOS DE LECTURA---------------------//
+  
+#if defined(_lecturasimple)
+  lectura = LecturaSimple();
+  Serial.println("lectura simple");
+  
+#endif
+#if defined(_lecturadoble)
+  lectura = LecturaDoble();
+  Serial.println("lectura doble");
+#endif
+
+  //--------------------FIN DISTINTOS MODOS DE LECTURA---------------------//
+
+  //--------------------DISTINTOS MODOS DE ACTUACION---------------------//
+  
+#if defined(_todonada)
+  resultado = TodoNada(lectura);
+  Serial.println("TodoNada");
+#endif
+
+#if defined(_p)
+  resultado = P(lectura);
+  Serial.println("p");
+#endif
+
+#if defined(_pid)
+  resultado = Pid(lectura);
+   Serial.println("pid");
+#endif
+
+  //-------------------- FIN DISTINTOS MODOS DE ACTUACION---------------------//
+
+  ponMotores(bias - resultado, bias + resultado);
+  delay(5);
 }
 
 
